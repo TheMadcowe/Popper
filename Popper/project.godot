@@ -16,7 +16,12 @@ _global_script_class_icons={
 [application]
 
 config/name="Popper"
+run/main_scene="res://Popper.tscn"
 config/icon="res://icon.png"
+
+[display]
+
+window/stretch/shrink=5.0
 
 [rendering]
 
