@@ -37,6 +37,20 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 2, 3 ]
 }
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.6 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "queue_free"
+} ]
+}
 
 [node name="Balloon" type="Area2D"]
 script = ExtResource( 1 )
@@ -45,7 +59,7 @@ script = ExtResource( 1 )
 texture = ExtResource( 2 )
 vframes = 2
 hframes = 2
-frame = 1
+frame = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -0.473328, -1.26223 )
@@ -54,3 +68,4 @@ shape = SubResource( 1 )
 [node name="Anim" type="AnimationPlayer" parent="."]
 anims/idle = SubResource( 2 )
 anims/pop = SubResource( 3 )
+[connection signal="body_entered" from="." to="." method="_on_Balloon_body_entered"]

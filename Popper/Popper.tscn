@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Popper.gd" type="Script" id=1]
 [ext_resource path="res://Grass.png" type="Texture" id=2]
 [ext_resource path="res://Balloon.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Coin.tscn" type="PackedScene" id=4]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 8, 0, 8, 8, 0, 8 )
@@ -46,3 +47,14 @@ position = Vector2( -40.4733, 48 )
 
 [node name="Balloon3" parent="Balloons" instance=ExtResource( 3 )]
 position = Vector2( -80, 62.7378 )
+
+[node name="Coins" type="Node" parent="."]
+
+[node name="Coin" parent="Coins" instance=ExtResource( 4 )]
+position = Vector2( 72, 40 )
+
+[node name="Coin2" parent="Coins" instance=ExtResource( 4 )]
+position = Vector2( 24, 72 )
+
+[node name="Coin3" parent="Coins" instance=ExtResource( 4 )]
+position = Vector2( -8, 72 )

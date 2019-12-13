@@ -8,9 +8,26 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Area2D",
+"class": "Balloon",
+"language": "GDScript",
+"path": "res://Balloon.gd"
+}, {
+"base": "Area2D",
+"class": "Coin",
+"language": "GDScript",
+"path": "res://Coin.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Player",
+"language": "GDScript",
+"path": "res://Player.gd"
+} ]
 _global_script_class_icons={
-
+"Balloon": "",
+"Coin": "",
+"Player": ""
 }
 
 [application]

@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+class_name Player
+
 const GRAVITY_VECTOR = Vector2(0, 300)
 const FLOOR_NORMAL = Vector2(0,-1)
 const WALKING_SPEED = 75
@@ -42,6 +44,7 @@ func _fire_nail():
 	pass;
 
 func _physics_process(delta):
+	
 	linear_vel += delta * GRAVITY_VECTOR
 	if(shoot_time < 0.3):
 		shoot_time += delta
