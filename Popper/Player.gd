@@ -4,12 +4,12 @@ class_name Player
 
 const GRAVITY_VECTOR = Vector2(0, 300)
 const FLOOR_NORMAL = Vector2(0,-1)
-const WALKING_SPEED = 75
-const JUMP_HEIGHT = 125
+const WALKING_SPEED = 60
+const JUMP_HEIGHT = 120
 const SLOPE_SLIDE_STOP = 0.25
 const SIDING_CHANGE_SPEED = 10
 const SIZE = 1
-const MAX_FALL_SPEED = 150
+const MAX_FALL_SPEED = 120
 const NAIL_SPEED = 70
 
 export var totalJumps = 1
@@ -31,6 +31,11 @@ func _ready():
 	$CollisionShape2D.scale.x = SIZE
 	$CollisionShape2D.scale.y = SIZE
 
+func boostJump(jumpBoost):
+	linear_vel.y = 0;
+	linear_vel.y -= jumpBoost;
+	print(jumpBoost)
+
 func _fire_nail():
 	shoot_time = 0
 	for i in range(burst):
@@ -44,6 +49,8 @@ func _fire_nail():
 	pass;
 
 func _physics_process(delta):
+	
+	
 	
 	linear_vel += delta * GRAVITY_VECTOR
 	if(shoot_time < 0.3):
