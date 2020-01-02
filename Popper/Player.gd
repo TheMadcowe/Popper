@@ -2,10 +2,10 @@ extends KinematicBody2D
 
 class_name Player
 
-const GRAVITY_VECTOR = Vector2(0, 300)
+const GRAVITY_VECTOR = Vector2(0, 200)
 const FLOOR_NORMAL = Vector2(0,-1)
-const WALKING_SPEED = 60
-const JUMP_HEIGHT = 120
+const WALKING_SPEED = 50
+const JUMP_HEIGHT = 80
 const SLOPE_SLIDE_STOP = 0.25
 const SIDING_CHANGE_SPEED = 10
 const SIZE = 1
@@ -21,6 +21,9 @@ var Nail = preload("res://Nail.tscn")
 var shoot_time = 1
 var burst = 8
 
+var combo = 0
+var currentPitch = 0.8
+
 var linear_vel = Vector2()
 
 var anim = ""
@@ -35,6 +38,15 @@ func boostJump(jumpBoost):
 	linear_vel.y = 0;
 	linear_vel.y -= jumpBoost;
 	print(jumpBoost)
+	jumps = totalJumps
+	combo += 1
+	playAudio()
+
+func playAudio():
+	if(currentPitch <= 2):
+		currentPitch = 0.8 + combo*0.1
+		$SoundEffect.pitch_scale = currentPitch
+	$SoundEffect.play()
 
 func _fire_nail():
 	shoot_time = 0
@@ -84,7 +96,8 @@ func _physics_process(delta):
 	var new_anim = "idle"
 	
 	if on_floor:
-		
+		combo = 0
+		currentPitch = 0.8
 		
 		if(linear_vel.x < -SIDING_CHANGE_SPEED):
 			sprite.scale.x = -SIZE

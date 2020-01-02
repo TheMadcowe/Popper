@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://Cowguy.png" type="Texture" id=2]
+[ext_resource path="res://Balloon_Pop.wav" type="AudioStream" id=3]
 
 [sub_resource type="Animation" id=1]
 resource_name = "idle"
@@ -85,7 +86,11 @@ anims/run = SubResource( 3 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
+smoothing_enabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -0.197903, -2.88707 )
 shape = SubResource( 4 )
+
+[node name="SoundEffect" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )

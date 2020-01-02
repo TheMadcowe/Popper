@@ -35,18 +35,66 @@ script = ExtResource( 1 )
 tile_set = SubResource( 2 )
 cell_size = Vector2( 8, 8 )
 format = 1
-tile_data = PoolIntArray( 196606, 0, 0, 196607, 0, 0, 131072, 0, 0, 131073, 0, 0, 131074, 0, 0, 131075, 0, 0, 393224, 0, 0, 393225, 0, 0, 393226, 0, 0, 393227, 0, 0, 393228, 0, 0, 589801, 0, 0, 589802, 0, 0, 589803, 0, 0, 589804, 0, 0, 589805, 0, 0, 589806, 0, 0, 589807, 0, 0, 589808, 0, 0, 720882, 0, 0, 720883, 0, 0, 720884, 0, 0, 720885, 0, 0, 720886, 0, 0, 720887, 0, 0, 720888, 0, 0, 720889, 0, 0, 720893, 0, 0, 720894, 0, 0, 720895, 0, 0, 655360, 0, 0, 655361, 0, 0, 655362, 0, 0, 655363, 0, 0 )
+tile_data = PoolIntArray( 196606, 0, 0, 196607, 0, 0, 131072, 0, 0, 131073, 0, 0, 131074, 0, 0, 131075, 0, 0, 393224, 0, 0, 393225, 0, 0, 393226, 0, 0, 393227, 0, 0, 393228, 0, 0, 393233, 0, 0, 393238, 0, 0, 393239, 0, 0, 393240, 0, 0, 393241, 0, 0, 393242, 0, 0, 589801, 0, 0, 589802, 0, 0, 589803, 0, 0, 589804, 0, 0, 589805, 0, 0, 589806, 0, 0, 589807, 0, 0, 589808, 0, 0, 720882, 0, 0, 720883, 0, 0, 720884, 0, 0, 720885, 0, 0, 720886, 0, 0, 720887, 0, 0, 720888, 0, 0, 720889, 0, 0, 720893, 0, 0, 720894, 0, 0, 720895, 0, 0, 655360, 0, 0, 655361, 0, 0, 655362, 0, 0, 655363, 0, 0, 917539, 0, 0, 917540, 0, 0, 917541, 0, 0, 917542, 0, 0, 917543, 0, 0, 917544, 0, 0 )
 
 [node name="Balloons" type="Node" parent="."]
 
 [node name="Balloon" parent="Balloons" instance=ExtResource( 3 )]
-position = Vector2( -40, 64 )
+position = Vector2( 48, 62.7378 )
+
+[node name="Balloon14" parent="Balloons" instance=ExtResource( 3 )]
+position = Vector2( 48.4733, 166.738 )
 
 [node name="Balloon2" parent="Balloons" instance=ExtResource( 3 )]
-position = Vector2( -40.4733, 48 )
+position = Vector2( 120, 40 )
+
+[node name="Balloon9" parent="Balloons" instance=ExtResource( 3 )]
+position = Vector2( 47.5267, 24 )
+
+[node name="Balloon16" parent="Balloons" instance=ExtResource( 3 )]
+position = Vector2( 48, 128 )
+
+[node name="Balloon10" parent="Balloons" instance=ExtResource( 3 )]
+position = Vector2( 47.5267, 42 )
+
+[node name="Balloon19" parent="Balloons" instance=ExtResource( 3 )]
+position = Vector2( 48, 146 )
+
+[node name="Balloon11" parent="Balloons" instance=ExtResource( 3 )]
+position = Vector2( 48, 78.7378 )
+
+[node name="Balloon15" parent="Balloons" instance=ExtResource( 3 )]
+position = Vector2( 48.4733, 182.738 )
+
+[node name="Balloon12" parent="Balloons" instance=ExtResource( 3 )]
+position = Vector2( 48, 96 )
+
+[node name="Balloon17" parent="Balloons" instance=ExtResource( 3 )]
+position = Vector2( 48.4733, 200 )
+
+[node name="Balloon13" parent="Balloons" instance=ExtResource( 3 )]
+position = Vector2( 48, 112 )
+
+[node name="Balloon18" parent="Balloons" instance=ExtResource( 3 )]
+position = Vector2( 48.4733, 216 )
 
 [node name="Balloon3" parent="Balloons" instance=ExtResource( 3 )]
-position = Vector2( -80, 62.7378 )
+position = Vector2( 159.527, 40 )
+
+[node name="Balloon5" parent="Balloons" instance=ExtResource( 3 )]
+position = Vector2( 232, 42 )
+
+[node name="Balloon6" parent="Balloons" instance=ExtResource( 3 )]
+position = Vector2( 256, 56 )
+
+[node name="Balloon7" parent="Balloons" instance=ExtResource( 3 )]
+position = Vector2( 280, 67.7378 )
+
+[node name="Balloon8" parent="Balloons" instance=ExtResource( 3 )]
+position = Vector2( 304, 80 )
+
+[node name="Balloon4" parent="Balloons" instance=ExtResource( 3 )]
+position = Vector2( 141, 32 )
 
 [node name="Coins" type="Node" parent="."]
 

@@ -38,7 +38,7 @@ config/icon="res://balloon.png"
 
 [display]
 
-window/stretch/shrink=5.0
+window/stretch/shrink=6.0
 
 [rendering]
 
