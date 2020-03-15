@@ -9,6 +9,7 @@ export var jumpBoost = 80
 func _ready():
 	$Anim.play("idle")
 	pass # Replace with function body.
+	add_to_group("Balloons")
 
 
 

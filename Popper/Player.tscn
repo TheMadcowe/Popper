@@ -94,3 +94,35 @@ shape = SubResource( 4 )
 
 [node name="SoundEffect" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 3 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ComboText" type="Label" parent="CanvasLayer"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 53.0
+margin_bottom = 14.0
+text = "Combo: "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CoinsText" type="Label" parent="CanvasLayer"]
+margin_left = 10.0
+margin_top = 30.0
+margin_right = 53.0
+margin_bottom = 14.0
+text = "Coins:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RemainingText" type="Label" parent="CanvasLayer"]
+margin_left = 10.0
+margin_top = 20.0
+margin_right = 53.0
+margin_bottom = 14.0
+text = "Remaining: "
+__meta__ = {
+"_edit_use_anchors_": false
+}

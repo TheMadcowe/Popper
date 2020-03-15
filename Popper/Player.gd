@@ -18,8 +18,9 @@ var jumps = totalJumps
 onready var sprite = $Sprite
 var Nail = preload("res://Nail.tscn")
 
-var shoot_time = 1
-var burst = 8
+var shoot_time = 0.04
+var burst = 3
+var shooting = false
 
 var combo = 0
 var currentPitch = 0.8
@@ -28,11 +29,19 @@ var linear_vel = Vector2()
 
 var anim = ""
 
+onready var comboText = $CanvasLayer/ComboText
+onready var remainingText = $CanvasLayer/RemainingText
+onready var coinsText = $CanvasLayer/CoinsText
+
+var totalBalloons = 0
+
 func _ready():
 	sprite.scale.y = SIZE
 	sprite.scale.x = SIZE
 	$CollisionShape2D.scale.x = SIZE
 	$CollisionShape2D.scale.y = SIZE
+	totalBalloons = get_tree().get_nodes_in_group("Balloons").size()
+	changeText()
 
 func boostJump(jumpBoost):
 	linear_vel.y = 0;
@@ -40,7 +49,18 @@ func boostJump(jumpBoost):
 	print(jumpBoost)
 	jumps = totalJumps
 	combo += 1
+	totalBalloons -= 1
+	changeText()
 	playAudio()
+
+func changeText():
+	comboText.text = "Combo: " + str(combo)
+	remainingText.text =  "Remaining" + str(totalBalloons)
+	
+#	comboText.margin_bottom = (randi() % 100)
+#	comboText.margin_left = (randi() % 100)
+#	comboText.margin_top = (randi() % 100)
+#	comboText.margin_right = (randi() % 100)
 
 func playAudio():
 	if(currentPitch <= 2):
@@ -50,13 +70,23 @@ func playAudio():
 
 func _fire_nail():
 	shoot_time = 0
+	
+	shooting = true
+
+	
+	
 	for i in range(burst):
 		var nail = Nail.instance()
 		nail.position = ($Sprite/NailShoot as Position2D).global_position
+		nail.position.y += (randi() % 5) - 2
 		nail.add_collision_exception_with(self)
 		nail.linear_velocity = Vector2(sprite.scale.x * NAIL_SPEED, 0)
 		nail.scale.x = sprite.scale.x
 		get_parent().add_child(nail)
+		yield(get_tree().create_timer(.05), "timeout")
+	
+	shooting = false
+
 	
 	pass;
 
@@ -79,8 +109,8 @@ func _physics_process(delta):
 		target_speed += 1
 	
 	if Input.is_key_pressed(KEY_Z) and shoot_time >= 0.2:
-		_fire_nail()
-		print("pew")
+		if(shooting == false):
+			_fire_nail()
 		
 	if Input.is_action_just_pressed("ui_up") and jumps > 0:
 		linear_vel.y = -JUMP_HEIGHT
@@ -97,6 +127,7 @@ func _physics_process(delta):
 	
 	if on_floor:
 		combo = 0
+		changeText()
 		currentPitch = 0.8
 		
 		if(linear_vel.x < -SIDING_CHANGE_SPEED):
