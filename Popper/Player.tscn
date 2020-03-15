@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://Cowguy.png" type="Texture" id=2]
 [ext_resource path="res://Balloon_Pop.wav" type="AudioStream" id=3]
+[ext_resource path="res://HUD.gd" type="Script" id=4]
 
 [sub_resource type="Animation" id=1]
 resource_name = "idle"
@@ -95,9 +96,10 @@ shape = SubResource( 4 )
 [node name="SoundEffect" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 3 )
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="HUD" type="CanvasLayer" parent="."]
+script = ExtResource( 4 )
 
-[node name="ComboText" type="Label" parent="CanvasLayer"]
+[node name="ComboText" type="Label" parent="HUD"]
 margin_left = 10.0
 margin_top = 10.0
 margin_right = 53.0
@@ -107,7 +109,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CoinsText" type="Label" parent="CanvasLayer"]
+[node name="CoinsText" type="Label" parent="HUD"]
 margin_left = 10.0
 margin_top = 30.0
 margin_right = 53.0
@@ -117,7 +119,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="RemainingText" type="Label" parent="CanvasLayer"]
+[node name="RemainingText" type="Label" parent="HUD"]
 margin_left = 10.0
 margin_top = 20.0
 margin_right = 53.0

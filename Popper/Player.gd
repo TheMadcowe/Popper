@@ -29,19 +29,24 @@ var linear_vel = Vector2()
 
 var anim = ""
 
-onready var comboText = $CanvasLayer/ComboText
-onready var remainingText = $CanvasLayer/RemainingText
-onready var coinsText = $CanvasLayer/CoinsText
+var coins = 0
 
-var totalBalloons = 0
+
+var remainingBalloons = 0
 
 func _ready():
 	sprite.scale.y = SIZE
 	sprite.scale.x = SIZE
 	$CollisionShape2D.scale.x = SIZE
 	$CollisionShape2D.scale.y = SIZE
-	totalBalloons = get_tree().get_nodes_in_group("Balloons").size()
-	changeText()
+	remainingBalloons = get_tree().get_nodes_in_group("Balloons").size()
+	$HUD.updateRemaining(remainingBalloons)
+	$HUD.updateCoins(coins)
+
+func addCoin(coinValue):
+	coins += coinValue
+	$HUD.updateCoins(coins)
+	pass;
 
 func boostJump(jumpBoost):
 	linear_vel.y = 0;
@@ -49,18 +54,12 @@ func boostJump(jumpBoost):
 	print(jumpBoost)
 	jumps = totalJumps
 	combo += 1
-	totalBalloons -= 1
-	changeText()
+	remainingBalloons -= 1
+	$HUD.updateCombo(combo)
+	$HUD.updateRemaining(remainingBalloons)
 	playAudio()
 
-func changeText():
-	comboText.text = "Combo: " + str(combo)
-	remainingText.text =  "Remaining" + str(totalBalloons)
-	
-#	comboText.margin_bottom = (randi() % 100)
-#	comboText.margin_left = (randi() % 100)
-#	comboText.margin_top = (randi() % 100)
-#	comboText.margin_right = (randi() % 100)
+
 
 func playAudio():
 	if(currentPitch <= 2):
@@ -127,7 +126,7 @@ func _physics_process(delta):
 	
 	if on_floor:
 		combo = 0
-		changeText()
+		$HUD.updateCombo(combo)
 		currentPitch = 0.8
 		
 		if(linear_vel.x < -SIDING_CHANGE_SPEED):
