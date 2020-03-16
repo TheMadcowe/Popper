@@ -31,16 +31,15 @@ var anim = ""
 
 var coins = 0
 
-
 var remainingBalloons = 0
+
 
 func _ready():
 	sprite.scale.y = SIZE
 	sprite.scale.x = SIZE
 	$CollisionShape2D.scale.x = SIZE
 	$CollisionShape2D.scale.y = SIZE
-	remainingBalloons = get_tree().get_nodes_in_group("Balloons").size()
-	$HUD.updateRemaining(remainingBalloons)
+	
 	$HUD.updateCoins(coins)
 
 func addCoin(coinValue):
@@ -55,11 +54,14 @@ func boostJump(jumpBoost):
 	jumps = totalJumps
 	combo += 1
 	remainingBalloons -= 1
-	$HUD.updateCombo(combo)
 	$HUD.updateRemaining(remainingBalloons)
+	$HUD.updateCombo(combo)
+
 	playAudio()
 
-
+func setRemaining(remaining):
+	remainingBalloons = remaining
+	$HUD.updateRemaining(remaining)
 
 func playAudio():
 	if(currentPitch <= 2):
