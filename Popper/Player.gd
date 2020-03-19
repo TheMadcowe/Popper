@@ -50,7 +50,6 @@ func addCoin(coinValue):
 func boostJump(jumpBoost):
 	linear_vel.y = 0;
 	linear_vel.y -= jumpBoost;
-	print(jumpBoost)
 	jumps = totalJumps
 	combo += 1
 	remainingBalloons -= 1
@@ -91,10 +90,14 @@ func _fire_nail():
 	
 	pass;
 
+func checkPosition():
+	
+	yield(get_tree().create_timer(0.1), "timeout")
+
+
 func _physics_process(delta):
 	
-	
-	
+	checkPosition();	
 	linear_vel += delta * GRAVITY_VECTOR
 	if(shoot_time < 0.3):
 		shoot_time += delta
@@ -127,8 +130,9 @@ func _physics_process(delta):
 	var new_anim = "idle"
 	
 	if on_floor:
-		combo = 0
-		$HUD.updateCombo(combo)
+		if(combo!= 0):
+			combo = 0
+			$HUD.updateCombo(combo)
 		currentPitch = 0.8
 		
 		if(linear_vel.x < -SIDING_CHANGE_SPEED):

@@ -10,7 +10,11 @@ onready var coin = load("res://Coin.tscn")
 onready var player = load("res://Player.tscn")
 onready var balloon = load("res://Balloon.tscn")
 # cellv 0 = balloon
+onready var smile = load("res://Smile.tscn")
+# cellv 3 = smile
 onready var gridSize = objects.cell_size
+
+var finished = false
 
 var remainingBalloons = 0
 # Called when the node enters the scene tree for the first time.
@@ -24,6 +28,13 @@ func _ready():
 	$Player.setRemaining(remainingBalloons)
 	
 	pass # Replace with function body.
+
+func _physics_process(delta):
+	if $Player.position.y < -200:
+		$Player/HUD.youWin()
+		get_tree().paused = true
+		finished = true
+	pass;
 
 func addObjects():
 	
@@ -43,18 +54,21 @@ func addObjects():
 			add_child(balloon_instance)
 			balloon_instance.add_to_group("Balloons")
 			balloon_instance.position = objects.map_to_world(usedCells[i])
-			print(balloon_instance.position)
+			
 			
 		elif object == 1 :
 			var coin_instance = coin.instance()
-		
-			
-			
-			
 			add_child(coin_instance)
 			coin_instance.add_to_group("Coins")
 			coin_instance.position = objects.map_to_world(usedCells[i])
-			print(coin_instance.position)
+			
+			
+		elif object == 3 :
+			var smile_instance = smile.instance()
+			add_child(smile_instance)
+			smile_instance.add_to_group("Balloons")
+			smile_instance.position = objects.map_to_world(usedCells[i])
+			
 	objects.clear()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
