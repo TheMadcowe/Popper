@@ -4,7 +4,7 @@
 [ext_resource path="res://balloon.png" type="Texture" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 2.66043
+radius = 3.24486
 
 [sub_resource type="Animation" id=2]
 resource_name = "idle"
@@ -63,8 +63,11 @@ hframes = 2
 frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 5, 5 )
+position = Vector2( 3.59268, 3.82741 )
 shape = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Anim" type="AnimationPlayer" parent="."]
 autoplay = "idle"
