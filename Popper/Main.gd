@@ -14,3 +14,4 @@ func _ready():
 	add_child(player_instance)
 	player_instance.position = playerPosition.position
 	
+	$Player/HUD/Text.visible = false

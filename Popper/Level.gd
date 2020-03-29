@@ -34,8 +34,8 @@ func _ready():
 func _physics_process(delta):
 	if $Player.position.y < -200:
 		$Player/HUD.youWin()
-		get_tree().paused = true
 		finished = true
+		$Player._levelWon()
 	pass;
 
 func _input(event):

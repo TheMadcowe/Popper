@@ -25,6 +25,11 @@ _global_script_classes=[ {
 "path": "res://Door.gd"
 }, {
 "base": "KinematicBody2D",
+"class": "NPC",
+"language": "GDScript",
+"path": "res://NPC.gd"
+}, {
+"base": "KinematicBody2D",
 "class": "Player",
 "language": "GDScript",
 "path": "res://Player.gd"
@@ -33,6 +38,7 @@ _global_script_class_icons={
 "Balloon": "",
 "Coin": "",
 "Door": "",
+"NPC": "",
 "Player": ""
 }
 
@@ -48,6 +54,13 @@ window/stretch/shrink=6.0
 
 [input]
 
+ui_up={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777232,"unicode":0,"echo":false,"script":null)
+, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":12,"pressure":0.0,"pressed":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":32,"unicode":0,"echo":false,"script":null)
+ ]
+}
 pause={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777217,"unicode":0,"echo":false,"script":null)

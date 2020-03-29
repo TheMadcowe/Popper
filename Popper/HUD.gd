@@ -1,9 +1,9 @@
 extends CanvasLayer
 
-onready var comboText = $ComboText
-onready var remainingText = $RemainingText
-onready var coinsText = $CoinsText
-onready var finishText = $FinishText
+onready var comboText = $Text/ComboText
+onready var remainingText = $Text/RemainingText
+onready var coinsText = $Text/CoinsText
+onready var finishText = $Text/FinishText
 
 var _timer = Timer.new()
 

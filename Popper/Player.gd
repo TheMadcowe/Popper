@@ -22,6 +22,8 @@ var shoot_time = 0.04
 var burst = 3
 var shooting = false
 
+var levelWon = false
+
 var combo = 0
 var currentPitch = 0.8
 
@@ -90,15 +92,14 @@ func _fire_nail():
 	
 	pass;
 
-func checkPosition():
-	
-	yield(get_tree().create_timer(0.1), "timeout")
 
 
 func _physics_process(delta):
 	
-	checkPosition();	
-	linear_vel += delta * GRAVITY_VECTOR
+	if not levelWon:
+		linear_vel += delta * GRAVITY_VECTOR
+	elif linear_vel.y != 0:
+		linear_vel.y = 0
 	if(shoot_time < 0.3):
 		shoot_time += delta
 
@@ -150,10 +151,20 @@ func _physics_process(delta):
 		if Input.is_action_pressed("ui_right") and not Input.is_action_pressed("ui_left"):
 			sprite.scale.x = SIZE
 		
-		if linear_vel.y != 0:
+		if linear_vel.y != 0 || levelWon:
 			new_anim = "jump"
 
 
 	if new_anim != anim:
 		anim = new_anim
 		($Anim as AnimationPlayer).play(anim)
+		
+		
+		
+
+func _levelWon():
+	levelWon = true
+
+func _input(event):
+	if levelWon && (event.is_action_pressed("ui_up") || event.is_action_pressed("ui_accept")):
+		get_tree().change_scene("res://Main.tscn")
