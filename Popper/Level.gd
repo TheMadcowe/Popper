@@ -14,6 +14,7 @@ onready var smile = load("res://Smile.tscn")
 # cellv 3 = smile
 onready var gridSize = objects.cell_size
 
+onready var playerPosition = $Player_Spawn
 var finished = false
 
 var remainingBalloons = 0
@@ -23,6 +24,7 @@ func _ready():
 	var player_instance = player.instance()
 	player_instance.set_name("Player")
 	add_child(player_instance)
+	player_instance.position = playerPosition.position
 	addObjects()
 	remainingBalloons = get_tree().get_nodes_in_group("Balloons").size()
 	$Player.setRemaining(remainingBalloons)
@@ -35,6 +37,13 @@ func _physics_process(delta):
 		get_tree().paused = true
 		finished = true
 	pass;
+
+func _input(event):
+	if get_tree().paused == true:
+		if event.is_action_pressed("ui_select"):
+			get_tree().paused == false
+			get_tree().change_scene("res://Main.tscn")
+			
 
 func addObjects():
 	

@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://Cowguy.png" type="Texture" id=2]
 [ext_resource path="res://Balloon_Pop.wav" type="AudioStream" id=3]
-[ext_resource path="res://HUD.gd" type="Script" id=4]
+[ext_resource path="res://HUD.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Pause.tscn" type="PackedScene" id=5]
 
 [sub_resource type="Animation" id=1]
 resource_name = "idle"
@@ -75,7 +76,13 @@ position = Vector2( -0.100106, -3.32167 )
 texture = ExtResource( 2 )
 vframes = 3
 hframes = 2
-frame = 1
+
+[node name="Camera2D" type="Camera2D" parent="Sprite"]
+pause_mode = 2
+position = Vector2( 0.100106, 3.32167 )
+current = true
+smoothing_enabled = true
+smoothing_speed = 20.0
 
 [node name="NailShoot" type="Position2D" parent="Sprite"]
 position = Vector2( 3.06879, 0.5509 )
@@ -85,11 +92,6 @@ anims/idle = SubResource( 1 )
 anims/jump = SubResource( 2 )
 anims/run = SubResource( 3 )
 
-[node name="Camera2D" type="Camera2D" parent="."]
-current = true
-smoothing_enabled = true
-smoothing_speed = 20.0
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -0.197903, -2.88707 )
 shape = SubResource( 4 )
@@ -97,55 +99,6 @@ shape = SubResource( 4 )
 [node name="SoundEffect" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 3 )
 
-[node name="HUD" type="CanvasLayer" parent="."]
-script = ExtResource( 4 )
+[node name="HUD" parent="." instance=ExtResource( 4 )]
 
-[node name="ComboText" type="Label" parent="HUD"]
-visible = false
-anchor_left = 0.263
-anchor_top = 0.329
-anchor_right = 0.263
-anchor_bottom = 0.329
-margin_left = 10.0
-margin_top = 30.0
-margin_right = 53.0
-margin_bottom = 14.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Combo: "
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="FinishText" type="Label" parent="HUD"]
-visible = false
-anchor_left = 0.4
-anchor_top = 0.2
-anchor_right = 0.4
-anchor_bottom = 0.2
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "You Win!"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="CoinsText" type="Label" parent="HUD"]
-margin_left = 10.0
-margin_top = 20.0
-margin_right = 53.0
-margin_bottom = 14.0
-text = "Coins:"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="RemainingText" type="Label" parent="HUD"]
-margin_left = 10.0
-margin_top = 5.0
-margin_right = 53.0
-margin_bottom = 14.0
-text = "Remaining: "
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Pause" parent="." instance=ExtResource( 5 )]
