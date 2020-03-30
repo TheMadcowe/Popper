@@ -45,7 +45,10 @@ func hideCombo():
 	pass # Replace with function body.
 	
 func updateRemaining(remaining):
-	remainingText.text = "Remaining: %s" % [remaining]
+	if remaining > 0:
+		remainingText.text = "Remaining: %s" % [remaining]
+	else:
+		remainingText.text = "ALL POPT!"
 
 func updateCoins(coins):
 	coinsText.text = "Coins: %s" % [coins]

@@ -5,16 +5,15 @@
 
 [sub_resource type="Animation" id=1]
 resource_name = "Idle"
-length = 2.0
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("../NPC/Sprite:frame")
+tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
+"times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ 2, 3 ]
@@ -25,7 +24,7 @@ resource_name = "Walk"
 length = 0.4
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("../NPC/Sprite:frame")
+tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -56,10 +55,10 @@ position = Vector2( 8, 8 )
 texture = ExtResource( 2 )
 vframes = 2
 hframes = 2
-frame = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 8, 8 )
+scale = Vector2( 0.4, 1 )
 shape = SubResource( 3 )
 
 [node name="Timer" type="Timer" parent="."]

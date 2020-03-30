@@ -35,6 +35,7 @@ func _physics_process(delta):
 	if new_anim != anim:
 		anim = new_anim
 		($Anim as AnimationPlayer).play(anim)
+		print(anim)
 	
 
 
