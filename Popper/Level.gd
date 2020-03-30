@@ -11,6 +11,7 @@ onready var player = load("res://Player.tscn")
 onready var balloon = load("res://Balloon.tscn")
 # cellv 0 = balloon
 onready var smile = load("res://Smile.tscn")
+onready var bigBalloon = load("res://Big_Balloon.tscn")
 # cellv 3 = smile
 onready var gridSize = objects.cell_size
 
@@ -36,6 +37,8 @@ func _physics_process(delta):
 		$Player/HUD.youWin()
 		finished = true
 		$Player._levelWon()
+	if $Player.position.y > 300:
+		get_tree().change_scene("res://Main.tscn")
 	pass;
 
 func _input(event):
@@ -78,6 +81,11 @@ func addObjects():
 			smile_instance.add_to_group("Balloons")
 			smile_instance.position = objects.map_to_world(usedCells[i])
 			
+		elif object == 4 :
+			var big_balloon_instance = bigBalloon.instance()
+			add_child(big_balloon_instance)
+			big_balloon_instance.add_to_group("Balloons")
+			big_balloon_instance.position = objects.map_to_world(usedCells[i])
 	objects.clear()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

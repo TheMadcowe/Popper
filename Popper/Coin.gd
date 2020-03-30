@@ -11,3 +11,4 @@ func _on_Coin_body_entered(body):
 		($Anim as AnimationPlayer).play("taken")
 		taken = true
 		body.addCoin(coinValue)
+		$Audio.play()

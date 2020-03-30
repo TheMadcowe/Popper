@@ -43,6 +43,7 @@ hoverText = "Level 1"
 
 [node name="Door2" parent="Level" instance=ExtResource( 3 )]
 position = Vector2( 104, 184 )
+next_level = "res://Level_2.tscn"
 hoverText = "Level 2"
 
 [node name="Player_Spawn" type="Position2D" parent="Level"]

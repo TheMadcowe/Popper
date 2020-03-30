@@ -6,10 +6,7 @@ export(String, FILE, "*.tscn") var next_level
 
 export var hoverText = ""
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
+var onDoor = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -19,11 +16,16 @@ func _ready():
 func _on_Door_body_entered(body):
 	if body is Player:
 		$Label.visible = true
+		onDoor = true
 	
+
+func _input(event):
 	
-	if Input.is_key_pressed(KEY_F):
+	if event.is_action_pressed("ui_accept") && onDoor:
+		onDoor = false
 		get_tree().change_scene(next_level)
 		print("oo")
+	else:
 		pass;
 
 
@@ -34,3 +36,4 @@ func _on_Door_body_entered(body):
 
 func _on_Door_body_exited(body):
 	$Label.visible = false
+	onDoor = false

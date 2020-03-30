@@ -1,13 +1,14 @@
 extends Control
 
+onready var resume = $CenterContainer/VBoxContainer/Resume
+onready var exit = $CenterContainer/VBoxContainer/ExitLevel
+onready var quit = $CenterContainer/VBoxContainer/Quit
 
 func _ready():
-	$CenterContainer/VBoxContainer/Resume.grab_focus()
+	resume.grab_focus()
 	
 func _process(delta):
-	var resume = $CenterContainer/VBoxContainer/Resume
-	var exit = $CenterContainer/VBoxContainer/ExitLevel
-	var quit = $CenterContainer/VBoxContainer/Quit
+
 	if resume.is_hovered():
 		resume.grab_focus()
 	if exit.is_hovered():
@@ -24,6 +25,7 @@ func _pauseUnpause():
 	get_tree().paused = new_pause_state
 	visible = new_pause_state
 	print("cheese")
+	resume.grab_focus()
 
 func _on_Resume_pressed():
 	_pauseUnpause()
