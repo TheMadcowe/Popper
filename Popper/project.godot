@@ -12,27 +12,27 @@ _global_script_classes=[ {
 "base": "Area2D",
 "class": "Balloon",
 "language": "GDScript",
-"path": "res://Balloon.gd"
+"path": "res://Scripts/Balloon.gd"
 }, {
 "base": "Area2D",
 "class": "Coin",
 "language": "GDScript",
-"path": "res://Coin.gd"
+"path": "res://Scripts/Coin.gd"
 }, {
 "base": "Area2D",
 "class": "Door",
 "language": "GDScript",
-"path": "res://Door.gd"
+"path": "res://Scripts/Door.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "NPC",
 "language": "GDScript",
-"path": "res://NPC.gd"
+"path": "res://Scripts/NPC.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "Player",
 "language": "GDScript",
-"path": "res://Player.gd"
+"path": "res://Scripts/Player.gd"
 } ]
 _global_script_class_icons={
 "Balloon": "",
@@ -45,8 +45,8 @@ _global_script_class_icons={
 [application]
 
 config/name="Popper"
-run/main_scene="res://Main.tscn"
-config/icon="res://Balloon Single.png"
+run/main_scene="res://Stages/Main.tscn"
+config/icon="res://Objects/Balloon Single.png"
 
 [display]
 
