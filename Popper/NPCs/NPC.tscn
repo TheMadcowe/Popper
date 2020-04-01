@@ -1,9 +1,7 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scripts/NPC.gd" type="Script" id=1]
 [ext_resource path="res://NPCs/Random guy.png" type="Texture" id=2]
-
-
 
 [sub_resource type="Animation" id=1]
 resource_name = "Idle"
@@ -38,11 +36,13 @@ tracks/0/keys = {
 "values": [ 0, 1 ]
 }
 
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 8, 8 )
+
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 8, 8 )
 
 [node name="NPC" type="KinematicBody2D"]
-z_index = -1
 collision_layer = 512
 collision_mask = 0
 script = ExtResource( 1 )
@@ -58,11 +58,32 @@ texture = ExtResource( 2 )
 vframes = 2
 hframes = 2
 
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="Label" type="Label" parent="."]
+visible = false
+anchor_right = 0.548
+margin_left = -200.0
+margin_top = -16.0
+margin_right = 220.0
+margin_bottom = -2.0
+text = "ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 8, 8 )
+shape = SubResource( 4 )
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 8, 8 )
 scale = Vector2( 0.4, 1 )
 shape = SubResource( 3 )
-
-[node name="Timer" type="Timer" parent="."]
-autostart = true
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]

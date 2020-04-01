@@ -15,6 +15,9 @@ onready var bigBalloon = load("res://Objects/Big_Balloon.tscn")
 # cellv 3 = smile
 onready var gridSize = objects.cell_size
 
+export var winHeight = -300
+export var loseHeight = 300
+
 onready var playerPosition = $Player_Spawn
 var finished = false
 
@@ -33,11 +36,11 @@ func _ready():
 	pass # Replace with function body.
 
 func _physics_process(delta):
-	if $Player.position.y < -200:
+	if $Player.position.y < winHeight:
 		$Player/HUD.youWin()
 		finished = true
 		$Player._levelWon()
-	if $Player.position.y > 300:
+	if $Player.position.y > loseHeight:
 		get_tree().change_scene("res://Stages/Main.tscn")
 	pass;
 

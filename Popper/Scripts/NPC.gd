@@ -2,6 +2,9 @@ extends KinematicBody2D
 
 class_name  NPC
 
+onready var text = $Label
+
+export var speech = ""
 
 const WALKING_SPEED = 10
 const GRAVITY_VECTOR = Vector2(0,200)
@@ -43,3 +46,14 @@ func _on_Timer_timeout():
 	direction = randi() % 3 - 1
 	$Timer.wait_time = randi() % 3 + 1
 
+
+
+func _on_Area2D_body_entered(body):
+	if body is Player:
+		text.visible = true
+		text.text = speech
+
+
+func _on_Area2D_body_exited(body):
+	if body is Player:
+		text.visible = false

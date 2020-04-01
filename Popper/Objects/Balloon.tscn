@@ -54,6 +54,7 @@ tracks/1/keys = {
 
 [node name="Balloon" type="Area2D"]
 script = ExtResource( 1 )
+jumpBoost = 88
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 5, 5 )
