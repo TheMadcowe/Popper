@@ -1,0 +1,127 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Objects/balloonsmile.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/Level.gd" type="Script" id=2]
+[ext_resource path="res://Objects/Grass.png" type="Texture" id=3]
+[ext_resource path="res://Objects/Door.png" type="Texture" id=4]
+[ext_resource path="res://Objects/Coin.png" type="Texture" id=5]
+[ext_resource path="res://Objects/balloon.png" type="Texture" id=6]
+[ext_resource path="res://Objects/Big balloon spritesheet.png" type="Texture" id=7]
+
+[sub_resource type="ConvexPolygonShape2D" id=1]
+points = PoolVector2Array( 0, 0, 8, 0, 8, 8, 0, 8 )
+
+[sub_resource type="TileSet" id=2]
+0/name = "Grass.png 0"
+0/texture = ExtResource( 3 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 8, 8 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape = SubResource( 1 )
+0/shape_one_way = false
+0/shape_one_way_margin = 1.0
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 1 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+0/z_index = 0
+
+[sub_resource type="TileSet" id=3]
+0/name = "balloon"
+0/texture = ExtResource( 6 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 8, 8 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_one_way = false
+0/shape_one_way_margin = 0.0
+0/shapes = [  ]
+0/z_index = 0
+1/name = "coin"
+1/texture = ExtResource( 5 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 0, 0, 8, 8 )
+1/tile_mode = 0
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape_one_way = false
+1/shape_one_way_margin = 0.0
+1/shapes = [  ]
+1/z_index = 0
+2/name = "door"
+2/texture = ExtResource( 4 )
+2/tex_offset = Vector2( 0, 0 )
+2/modulate = Color( 1, 1, 1, 1 )
+2/region = Rect2( 0, 0, 8, 16 )
+2/tile_mode = 0
+2/occluder_offset = Vector2( 0, 0 )
+2/navigation_offset = Vector2( 0, 0 )
+2/shape_offset = Vector2( 0, 0 )
+2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+2/shape_one_way = false
+2/shape_one_way_margin = 0.0
+2/shapes = [  ]
+2/z_index = 0
+3/name = "smile"
+3/texture = ExtResource( 1 )
+3/tex_offset = Vector2( 0, 0 )
+3/modulate = Color( 1, 1, 1, 1 )
+3/region = Rect2( 0, 0, 8, 8 )
+3/tile_mode = 0
+3/occluder_offset = Vector2( 0, 0 )
+3/navigation_offset = Vector2( 0, 0 )
+3/shape_offset = Vector2( 0, 0 )
+3/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+3/shape_one_way = false
+3/shape_one_way_margin = 0.0
+3/shapes = [  ]
+3/z_index = 0
+4/name = "Big balloon spritesheet.png 4"
+4/texture = ExtResource( 7 )
+4/tex_offset = Vector2( 0, 0 )
+4/modulate = Color( 1, 1, 1, 1 )
+4/region = Rect2( 0, 0, 16, 16 )
+4/tile_mode = 0
+4/occluder_offset = Vector2( 0, 0 )
+4/navigation_offset = Vector2( 0, 0 )
+4/shape_offset = Vector2( 0, 0 )
+4/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+4/shape_one_way = false
+4/shape_one_way_margin = 0.0
+4/shapes = [  ]
+4/z_index = 0
+
+[node name="Main" type="Node"]
+
+[node name="Level" type="Node" parent="."]
+script = ExtResource( 2 )
+
+[node name="Player_Spawn" type="Position2D" parent="Level"]
+position = Vector2( 20, 5 )
+
+[node name="TileMap" type="TileMap" parent="Level"]
+tile_set = SubResource( 2 )
+cell_size = Vector2( 8, 8 )
+format = 1
+tile_data = PoolIntArray( -196617, 0, 0, -262141, 0, 0, -131081, 0, 0, -196605, 0, 0, -65545, 0, 0, -131069, 0, 0, -9, 0, 0, -65533, 0, 0, -65492, 0, 0, -65490, 0, 0, 65527, 0, 0, 3, 0, 0, 44, 0, 0, 46, 0, 0, 131063, 0, 0, 65539, 0, 0, 65580, 0, 0, 65582, 0, 0, 196599, 0, 0, 196606, 0, 0, 196607, 0, 0, 131072, 0, 0, 131073, 0, 0, 131074, 0, 0, 131075, 0, 0, 131116, 0, 0, 131118, 0, 0, 262135, 0, 0, 196652, 0, 0, 196654, 0, 0, 327671, 0, 0, 262188, 0, 0, 262190, 0, 0, 393207, 0, 0, 327724, 0, 0, 327726, 0, 0, 458743, 0, 0, 393251, 0, 0, 393252, 0, 0, 393253, 0, 0, 393254, 0, 0, 393255, 0, 0, 393256, 0, 0, 393257, 0, 0, 393260, 0, 0, 393262, 0, 0, 524279, 0, 0, 458796, 0, 0, 458798, 0, 0, 589815, 0, 0, 524332, 0, 0, 524334, 0, 0, 655351, 0, 0, 655352, 0, 0, 655353, 0, 0, 655354, 0, 0, 655355, 0, 0, 655356, 0, 0, 655357, 0, 0, 655358, 0, 0, 655359, 0, 0, 589824, 0, 0, 589825, 0, 0, 589826, 0, 0, 589827, 0, 0, 589837, 0, 0, 589838, 0, 0, 589839, 0, 0, 589840, 0, 0, 589868, 0, 0, 589870, 0, 0, 655363, 0, 0, 655373, 0, 0, 655376, 0, 0, 655404, 0, 0, 655406, 0, 0, 720899, 0, 0, 720909, 0, 0, 720912, 0, 0, 720913, 0, 0, 720940, 0, 0, 720942, 0, 0, 786435, 0, 0, 786436, 0, 0, 786437, 0, 0, 786445, 0, 0, 786449, 0, 0, 786476, 0, 0, 786478, 0, 0, 851973, 0, 0, 851981, 0, 0, 851985, 0, 0, 851986, 0, 0, 852014, 0, 0, 917509, 0, 0, 917517, 0, 0, 917522, 0, 0, 917550, 0, 0, 983045, 0, 0, 983046, 0, 0, 983047, 0, 0, 983048, 0, 0, 983049, 0, 0, 983050, 0, 0, 983051, 0, 0, 983052, 0, 0, 983053, 0, 0, 983058, 0, 0, 983059, 0, 0, 983060, 0, 0, 983061, 0, 0, 983062, 0, 0, 983063, 0, 0, 983064, 0, 0, 983065, 0, 0, 983066, 0, 0, 983067, 0, 0, 983068, 0, 0, 983069, 0, 0, 983070, 0, 0, 983071, 0, 0, 983072, 0, 0, 983073, 0, 0, 983074, 0, 0, 983075, 0, 0, 983076, 0, 0, 983077, 0, 0, 983078, 0, 0, 983079, 0, 0, 983080, 0, 0, 983081, 0, 0, 983082, 0, 0, 983083, 0, 0, 983084, 0, 0, 983085, 0, 0, 983086, 0, 0 )
+
+[node name="Objects" type="TileMap" parent="Level"]
+tile_set = SubResource( 3 )
+cell_size = Vector2( 8, 8 )
+format = 1
+tile_data = PoolIntArray( -196563, 4, 0, 45, 0, 0, 131110, 1, 0, 131117, 0, 0, 196632, 1, 0, 196633, 1, 0, 196635, 1, 0, 196636, 1, 0, 196638, 1, 0, 196639, 1, 0, 196645, 1, 0, 196646, 1, 0, 196647, 1, 0, 262166, 1, 0, 262180, 1, 0, 262181, 1, 0, 262182, 1, 0, 262183, 1, 0, 262184, 1, 0, 262189, 0, 0, 327700, 1, 0, 327703, 0, 0, 327706, 0, 0, 327709, 0, 0, 327712, 0, 0, 327715, 1, 0, 327716, 1, 0, 327717, 1, 0, 327718, 1, 0, 327719, 1, 0, 327720, 1, 0, 327721, 1, 0, 393222, 1, 0, 393234, 1, 0, 393237, 0, 0, 393261, 0, 0, 458757, 1, 0, 458759, 1, 0, 458762, 1, 0, 458763, 1, 0, 458764, 1, 0, 458769, 1, 0, 458771, 0, 0, 524296, 1, 0, 524297, 1, 0, 524333, 0, 0, 655405, 0, 0, 786477, 0, 0 )
