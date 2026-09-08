@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=4 uid="uid://bmhmtf786uk1c"]
+[gd_scene format=4 uid="uid://bmhmtf786uk1c"]
 
 [ext_resource type="Script" uid="uid://d2wh463g5043y" path="res://Scripts/Main.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://buf8t8wd5pvo5" path="res://Objects/Grass.png" id="2"]
@@ -44,52 +44,52 @@ physics_layer_0/collision_layer = 2
 physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_kvtte")
 
-[node name="Main" type="Node"]
+[node name="Main" type="Node" unique_id=1908102986]
 
-[node name="Level" type="Node" parent="."]
+[node name="Level" type="Node" parent="." unique_id=886728187]
 script = ExtResource("1")
 
-[node name="Door" parent="Level" instance=ExtResource("3")]
+[node name="Door" parent="Level" unique_id=371960381 instance=ExtResource("3")]
 position = Vector2(64, 184)
 next_level = "res://Stages/Level_1.tscn"
 hoverText = "Level 1"
 
-[node name="Door2" parent="Level" instance=ExtResource("3")]
+[node name="Door2" parent="Level" unique_id=1045717361 instance=ExtResource("3")]
 position = Vector2(168, 184)
 next_level = "res://Stages/Level_2.tscn"
 hoverText = "Level 2"
 
-[node name="Door3" parent="Level" instance=ExtResource("3")]
+[node name="Door3" parent="Level" unique_id=390088584 instance=ExtResource("3")]
 position = Vector2(216, 184)
 next_level = "C:/Users/Madcowe/Documents/Godot/Popper/Objects/Level_RNG.tscn"
 hoverText = "RNG!!!!!"
 
-[node name="Player_Spawn" type="Marker2D" parent="Level"]
+[node name="Player_Spawn" type="Marker2D" parent="Level" unique_id=1517332344]
 position = Vector2(1, 82)
 
-[node name="TileMap" type="TileMapLayer" parent="Level"]
+[node name="TileMap" type="TileMapLayer" parent="Level" unique_id=5623855]
 use_parent_material = true
 tile_map_data = PackedByteArray("AAAGABkAAAAAAAAAAAAHABkAAAAAAAAAAAAIABkAAAAAAAAAAAAJABkAAAAAAAAAAAAKABkAAAAAAAAAAAALABkAAAAAAAAAAAAMABkAAAAAAAAAAAANABkAAAAAAAAAAAAOABkAAAAAAAAAAAAPABkAAAAAAAAAAAAQABkAAAAAAAAAAAARABkAAAAAAAAAAAASABkAAAAAAAAAAAATABkAAAAAAAAAAAAUABkAAAAAAAAAAAAVABkAAAAAAAAAAAAWABkAAAAAAAAAAAAXABkAAAAAAAAAAAAYABkAAAAAAAAAAAAZABkAAAAAAAAAAAAaABkAAAAAAAAAAAAbABkAAAAAAAAAAAAcABkAAAAAAAAAAAAdABkAAAAAAAAAAAAeABkAAAAAAAAAAAAfABkAAAAAAAAAAAAgABkAAAAAAAAAAAAgABgAAAAAAAAAAAAhABgAAAAAAAAAAAAiABgAAAAAAAAAAAAjABgAAAAAAAAAAAAkABcAAAAAAAAAAAAlABcAAAAAAAAAAAAlABYAAAAAAAAAAAAmABYAAAAAAAAAAAAmABUAAAAAAAAAAAAnABUAAAAAAAAAAAAnABQAAAAAAAAAAAAoABQAAAAAAAAAAAAQAAYAAAAAAAAAAAARAAYAAAAAAAAAAAASAAYAAAAAAAAAAAATAAYAAAAAAAAAAAAUAAYAAAAAAAAAAAAVAAYAAAAAAAAAAAAWAAYAAAAAAAAAAAAXAAcAAAAAAAAAAAAYAAcAAAAAAAAAAAAZAAcAAAAAAAAAAAAaAAcAAAAAAAAAAAAbAAcAAAAAAAAAAAAcAAgAAAAAAAAAAAAdAAgAAAAAAAAAAAAeAAgAAAAAAAAAAAAfAAgAAAAAAAAAAAAfAAkAAAAAAAAAAAAgAAkAAAAAAAAAAAAhAAoAAAAAAAAAAAAiAAoAAAAAAAAAAAAiAAsAAAAAAAAAAAAjAAsAAAAAAAAAAAAjAAwAAAAAAAAAAAAkAAwAAAAAAAAAAAAkAA0AAAAAAAAAAAAlAA0AAAAAAAAAAAAlAA4AAAAAAAAAAAAmAA4AAAAAAAAAAAAmAA8AAAAAAAAAAAAnAA8AAAAAAAAAAAAoAA8AAAAAAAAAAAApABQAAAAAAAAAAAAqABQAAAAAAAAAAAArABQAAAAAAAAAAAAsABQAAAAAAAAAAAAtABQAAAAAAAAAAAAtABMAAAAAAAAABAAtABIAAAAAAAAABAAtABEAAAAAAAAABAAtABAAAAAAAAAABAAtAA8AAAAAAAAABAAtAA4AAAAAAAAABAAtAA0AAAAAAAAABAAtAAwAAAAAAAAABAAtAAsAAAAAAAAABAAtAAoAAAAAAAAABAAtAAkAAAAAAAAABAAtAAgAAAAAAAAABAAtAAcAAAAAAAAABAAtAAYAAAAAAAAABAApABAAAAAAAAAAAAAoABAAAAAAAAAAAAApABEAAAAAAAAAAAAqABIAAAAAAAAAAAAqABEAAAAAAAAAAAAbAAgAAAAAAAAAAAAWAAcAAAAAAAAAAAAFABkAAAAAAAAAAAAEABkAAAAAAAAAAAADABkAAAAAAAAAAAACABkAAAAAAAAAAAABABkAAAAAAAAAAAAAABkAAAAAAAAAAAD//xkAAAAAAAAAAAD+/xkAAAAAAAAAAAD9/xkAAAAAAAAAAAD8/xkAAAAAAAAAAAD7/xkAAAAAAAAAAAD6/xkAAAAAAAAAAAD5/xgAAAAAAAAABQD5/xkAAAAAAAAABQD5/xoAAAAAAAAABQD5/xcAAAAAAAAABQD5/xYAAAAAAAAABQD5/xUAAAAAAAAABQD5/xQAAAAAAAAABQD5/xMAAAAAAAAABQD5/xIAAAAAAAAABQD5/xEAAAAAAAAABQD5/xAAAAAAAAAABQD5/w8AAAAAAAAABQD5/w4AAAAAAAAABQD5/w0AAAAAAAAABQD5/wwAAAAAAAAABQD5/wsAAAAAAAAABQD5/woAAAAAAAAABQD5/wkAAAAAAAAABQD5/wgAAAAAAAAABQD5/wcAAAAAAAAABQD5/wYAAAAAAAAABQD5/wUAAAAAAAAABQD5/wQAAAAAAAAABQD5/wMAAAAAAAAABQD5/wIAAAAAAAAABQD6/wIAAAAAAAAABQD6/wEAAAAAAAAABQD6/wAAAAAAAAAABQD6////AAAAAAAABQD6//7/AAAAAAAABQD6//3/AAAAAAAABQD6//z/AAAAAAAABQD5//z/AAAAAAAABQD5//v/AAAAAAAABQA=")
 tile_set = SubResource("2")
 
-[node name="GoodGround" type="TileMapLayer" parent="Level"]
+[node name="GoodGround" type="TileMapLayer" parent="Level" unique_id=1133730469]
 
-[node name="NPC" parent="." instance=ExtResource("4")]
+[node name="NPC" parent="." unique_id=2134386647 instance=ExtResource("4")]
 position = Vector2(134, 184)
 speech = "I like your cheese"
 
-[node name="NPC5" parent="." instance=ExtResource("4")]
+[node name="NPC5" parent="." unique_id=1001382638 instance=ExtResource("4")]
 position = Vector2(264, 144)
 speech = "Don't forget to subscribe!"
 
-[node name="NPC4" parent="." instance=ExtResource("4")]
+[node name="NPC4" parent="." unique_id=2137224257 instance=ExtResource("4")]
 position = Vector2(240, 179.589)
 speech = "BALLOOOOOONZ!"
 
-[node name="NPC2" parent="." instance=ExtResource("4")]
+[node name="NPC2" parent="." unique_id=147273688 instance=ExtResource("4")]
 position = Vector2(94, 176)
 speech = "Sup?"
 
-[node name="NPC3" parent="." instance=ExtResource("4")]
+[node name="NPC3" parent="." unique_id=398498396 instance=ExtResource("4")]
 position = Vector2(192, 32)
 speech = "Nothing here, sorry"

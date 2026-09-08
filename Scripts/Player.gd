@@ -9,11 +9,12 @@ signal combo_incremented
 
 
 const GRAVITY_VECTOR = Vector2(0, 200)
-const WALKING_SPEED = 56
+const WALKING_SPEED = 62
 const JUMP_HEIGHT = 80
 const SIZE = 1
 const MAX_FALL_SPEED = 120
 const NAIL_SPEED = 70
+const ACCELERATION = 300
 
 
 @export var max_air_jumps = 1
@@ -44,7 +45,16 @@ func _ready() -> void:
 	air_jumps_left = max_air_jumps
 	
 
-func boost_jump(jump_boost):
+func boost_jump(jump_boost, balloon_position):
+	print(
+	"BALLOON HIT | Player: ",
+	global_position,
+	" | Balloon: ",
+	balloon_position,
+	" | Boost: ",
+	jump_boost
+	)
+
 	linear_vel.y = 0
 	linear_vel.y -= jump_boost;
 	air_jumps_left = max_air_jumps
@@ -97,7 +107,13 @@ func _physics_process(_delta):
 		target_dir += 1
 		sprite.scale.x = SIZE
 	
-	linear_vel.x = lerp(linear_vel.x, target_dir * WALKING_SPEED, 0.1)
+	
+	linear_vel.x = move_toward(
+	linear_vel.x,
+	target_dir * WALKING_SPEED,
+	ACCELERATION * _delta
+)
+	#linear_vel.x = lerp(linear_vel.x, target_dir * WALKING_SPEED, 0.1)
 	
 	# Jump
 	if Input.is_action_just_pressed("jump") and (is_on_floor() or air_jumps_left > 0):

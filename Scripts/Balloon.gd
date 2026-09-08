@@ -3,7 +3,7 @@ class_name Balloon
 
 var popped = false
 
-@export var jumpBoost = 80
+@export var jump_boost = 80
 @export var hp = 1
 
 func _ready():
@@ -18,7 +18,13 @@ func _on_Balloon_body_entered(body):
 		($Anim as AnimationPlayer).play("pop")
 		Game.on_balloon_popped(1)
 		if body is Player:
-			body.boost_jump(jumpBoost)
+			print(
+	"HIT | Frame:", Engine.get_physics_frames(),
+	" | Player:", body.global_position,
+	" | Balloon:", global_position,
+	" | VY:", body.linear_vel.y
+)
+			body.boost_jump(jump_boost, global_position)
 		if hp <= 0:
 			popped = true
 

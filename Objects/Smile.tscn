@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b4d538h6anbh6"]
+[gd_scene format=3 uid="uid://b4d538h6anbh6"]
 
 [ext_resource type="Script" uid="uid://cn8td51qjtc1a" path="res://Scripts/Balloon.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://b41svqwe01cx6" path="res://Objects/balloonsmile.png" id="2"]
@@ -58,26 +58,24 @@ _data = {
 &"pop": SubResource("3")
 }
 
-[node name="Balloon" type="Area2D"]
+[node name="Balloon" type="Area2D" unique_id=1024635692]
 collision_layer = 8
 script = ExtResource("1")
-jumpBoost = 200
+jump_boost = 40
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=426529268]
 position = Vector2(0.062, 0.032)
 texture = ExtResource("2")
 hframes = 2
 vframes = 2
 frame = 1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1991554295]
 position = Vector2(-0.49, -1.435)
 shape = SubResource("1")
 
-[node name="Anim" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_23472")
-}
-autoplay = "idle"
+[node name="Anim" type="AnimationPlayer" parent="." unique_id=1866772080]
+libraries/ = SubResource("AnimationLibrary_23472")
+autoplay = &"idle"
 
 [connection signal="body_entered" from="." to="." method="_on_Balloon_body_entered"]

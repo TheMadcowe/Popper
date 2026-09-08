@@ -27,8 +27,10 @@ Game="*res://Scripts/Game.gd"
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
+window/stretch/mode="canvas_items"
+window/stretch/scale=2.0
+window/stretch/scale_mode="integer"
 window/size/fullscreen=true
-window/stretch/shrink=6.0
 
 [editor_plugins]
 
@@ -108,6 +110,7 @@ jump={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+textures/vram_compression/import_etc2_astc=true
 environment/defaults/default_clear_color=Color(0.1008, 0.4977, 0.63, 1)
 environment/defaults/default_environment="res://default_env.tres"
 2d/snapping/use_gpu_pixel_snap=true
