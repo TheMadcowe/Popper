@@ -1,76 +1,83 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=3 uid="uid://b4d538h6anbh6"]
 
-[ext_resource path="res://Scripts/Balloon.gd" type="Script" id=1]
-[ext_resource path="res://Objects/balloonsmile.png" type="Texture" id=2]
+[ext_resource type="Script" uid="uid://cn8td51qjtc1a" path="res://Scripts/Balloon.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://b41svqwe01cx6" path="res://Objects/balloonsmile.png" id="2"]
 
-
-
-[sub_resource type="CircleShape2D" id=1]
+[sub_resource type="CircleShape2D" id="1"]
 radius = 3.24486
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id="2"]
 resource_name = "idle"
-loop = true
+loop_mode = 1
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [ 0, 1 ]
+"values": [0, 1]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id="3"]
 resource_name = "pop"
 length = 0.6
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.3 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [ 2, 3 ]
+"values": [2, 3]
 }
 tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
 tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0.6 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "queue_free"
-} ]
+"times": PackedFloat32Array(0.6),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_23472"]
+_data = {
+&"idle": SubResource("2"),
+&"pop": SubResource("3")
 }
 
 [node name="Balloon" type="Area2D"]
-script = ExtResource( 1 )
-jumpBoost = 500
+collision_layer = 8
+script = ExtResource("1")
+jumpBoost = 200
 
-[node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 5, 5 )
-texture = ExtResource( 2 )
-vframes = 2
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0.062, 0.032)
+texture = ExtResource("2")
 hframes = 2
+vframes = 2
 frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 4.39676, 3.82741 )
-shape = SubResource( 1 )
+position = Vector2(-0.49, -1.435)
+shape = SubResource("1")
 
 [node name="Anim" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_23472")
+}
 autoplay = "idle"
-anims/idle = SubResource( 2 )
-anims/pop = SubResource( 3 )
+
 [connection signal="body_entered" from="." to="." method="_on_Balloon_body_entered"]

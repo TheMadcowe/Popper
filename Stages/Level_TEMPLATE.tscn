@@ -1,0 +1,202 @@
+[gd_scene load_steps=16 format=4 uid="uid://chsx4hr6x0lsl"]
+
+[ext_resource type="Script" uid="uid://cvojlv56yovd" path="res://Scripts/Level.gd" id="1_i0vwv"]
+[ext_resource type="Texture2D" uid="uid://cjs0u3ba7iiiw" path="res://Objects/balloon.png" id="2_wkcai"]
+[ext_resource type="Texture2D" uid="uid://duc863ulg338s" path="res://Objects/Coin.png" id="3_166f3"]
+[ext_resource type="Texture2D" uid="uid://4ks7f0aabhj" path="res://Objects/Door.png" id="4_dm8g2"]
+[ext_resource type="Texture2D" uid="uid://b41svqwe01cx6" path="res://Objects/balloonsmile.png" id="5_jkt2d"]
+[ext_resource type="Texture2D" uid="uid://x08ljvwfnypa" path="res://Objects/Big balloon spritesheet.png" id="6_pakio"]
+[ext_resource type="Texture2D" uid="uid://buf8t8wd5pvo5" path="res://Objects/Grass.png" id="7_43s56"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_26bhc"]
+resource_name = "balloon"
+texture = ExtResource("2_wkcai")
+texture_region_size = Vector2i(8, 8)
+0:0/next_alternative_id = 8
+0:0/0 = 0
+0:0/1 = 1
+0:0/1/flip_h = true
+0:0/2 = 2
+0:0/2/flip_v = true
+0:0/3 = 3
+0:0/3/flip_h = true
+0:0/3/flip_v = true
+0:0/4 = 4
+0:0/4/transpose = true
+0:0/5 = 5
+0:0/5/flip_h = true
+0:0/5/transpose = true
+0:0/6 = 6
+0:0/6/flip_v = true
+0:0/6/transpose = true
+0:0/7 = 7
+0:0/7/flip_h = true
+0:0/7/flip_v = true
+0:0/7/transpose = true
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lqcdb"]
+resource_name = "coin"
+texture = ExtResource("3_166f3")
+texture_region_size = Vector2i(8, 8)
+0:0/next_alternative_id = 8
+0:0/0 = 0
+0:0/1 = 1
+0:0/1/flip_h = true
+0:0/2 = 2
+0:0/2/flip_v = true
+0:0/3 = 3
+0:0/3/flip_h = true
+0:0/3/flip_v = true
+0:0/4 = 4
+0:0/4/transpose = true
+0:0/5 = 5
+0:0/5/flip_h = true
+0:0/5/transpose = true
+0:0/6 = 6
+0:0/6/flip_v = true
+0:0/6/transpose = true
+0:0/7 = 7
+0:0/7/flip_h = true
+0:0/7/flip_v = true
+0:0/7/transpose = true
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gyhun"]
+texture = ExtResource("4_dm8g2")
+texture_region_size = Vector2i(8, 16)
+0:0/next_alternative_id = 8
+0:0/0 = 0
+0:0/1 = 1
+0:0/1/flip_h = true
+0:0/2 = 2
+0:0/2/flip_v = true
+0:0/3 = 3
+0:0/3/flip_h = true
+0:0/3/flip_v = true
+0:0/4 = 4
+0:0/4/transpose = true
+0:0/5 = 5
+0:0/5/flip_h = true
+0:0/5/transpose = true
+0:0/6 = 6
+0:0/6/flip_v = true
+0:0/6/transpose = true
+0:0/7 = 7
+0:0/7/flip_h = true
+0:0/7/flip_v = true
+0:0/7/transpose = true
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nraal"]
+resource_name = "balloon_smile"
+texture = ExtResource("5_jkt2d")
+texture_region_size = Vector2i(8, 8)
+0:0/next_alternative_id = 8
+0:0/0 = 0
+0:0/1 = 1
+0:0/1/flip_h = true
+0:0/2 = 2
+0:0/2/flip_v = true
+0:0/3 = 3
+0:0/3/flip_h = true
+0:0/3/flip_v = true
+0:0/4 = 4
+0:0/4/transpose = true
+0:0/5 = 5
+0:0/5/flip_h = true
+0:0/5/transpose = true
+0:0/6 = 6
+0:0/6/flip_v = true
+0:0/6/transpose = true
+0:0/7 = 7
+0:0/7/flip_h = true
+0:0/7/flip_v = true
+0:0/7/transpose = true
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k08c4"]
+resource_name = "big_balloon"
+texture = ExtResource("6_pakio")
+0:0/next_alternative_id = 8
+0:0/0 = 0
+0:0/1 = 1
+0:0/1/flip_h = true
+0:0/2 = 2
+0:0/2/flip_v = true
+0:0/3 = 3
+0:0/3/flip_h = true
+0:0/3/flip_v = true
+0:0/4 = 4
+0:0/4/transpose = true
+0:0/5 = 5
+0:0/5/flip_h = true
+0:0/5/transpose = true
+0:0/6 = 6
+0:0/6/flip_v = true
+0:0/6/transpose = true
+0:0/7 = 7
+0:0/7/flip_h = true
+0:0/7/flip_v = true
+0:0/7/transpose = true
+
+[sub_resource type="TileSet" id="3"]
+tile_size = Vector2i(8, 8)
+sources/0 = SubResource("TileSetAtlasSource_26bhc")
+sources/1 = SubResource("TileSetAtlasSource_lqcdb")
+sources/2 = SubResource("TileSetAtlasSource_gyhun")
+sources/3 = SubResource("TileSetAtlasSource_nraal")
+sources/4 = SubResource("TileSetAtlasSource_k08c4")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pdf65"]
+texture = ExtResource("7_43s56")
+texture_region_size = Vector2i(8, 8)
+0:0/next_alternative_id = 8
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
+0:0/1 = 1
+0:0/1/flip_h = true
+0:0/1/physics_layer_0/polygon_0/points = PackedVector2Array(4, -4, -4, -4, -4, 4, 4, 4)
+0:0/2 = 2
+0:0/2/flip_v = true
+0:0/2/physics_layer_0/polygon_0/points = PackedVector2Array(-4, 4, 4, 4, 4, -4, -4, -4)
+0:0/3 = 3
+0:0/3/flip_h = true
+0:0/3/flip_v = true
+0:0/3/physics_layer_0/polygon_0/points = PackedVector2Array(4, 4, -4, 4, -4, -4, 4, -4)
+0:0/4 = 4
+0:0/4/transpose = true
+0:0/4/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, -4, 4, 4, 4, 4, -4)
+0:0/5 = 5
+0:0/5/flip_h = true
+0:0/5/transpose = true
+0:0/5/physics_layer_0/polygon_0/points = PackedVector2Array(4, -4, 4, 4, -4, 4, -4, -4)
+0:0/6 = 6
+0:0/6/flip_v = true
+0:0/6/transpose = true
+0:0/6/physics_layer_0/polygon_0/points = PackedVector2Array(-4, 4, -4, -4, 4, -4, 4, 4)
+0:0/7 = 7
+0:0/7/flip_h = true
+0:0/7/flip_v = true
+0:0/7/transpose = true
+0:0/7/physics_layer_0/polygon_0/points = PackedVector2Array(4, 4, 4, -4, -4, -4, -4, 4)
+
+[sub_resource type="TileSet" id="2"]
+tile_size = Vector2i(8, 8)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_pdf65")
+
+[node name="Main" type="Node"]
+
+[node name="Level" type="Node" parent="."]
+script = ExtResource("1_i0vwv")
+
+[node name="Player_Spawn" type="Marker2D" parent="Level"]
+position = Vector2(20, 5)
+
+[node name="Objects" type="TileMapLayer" parent="Level"]
+use_parent_material = true
+tile_map_data = PackedByteArray("AAAMAAkAAAAAAAAAAAAQAAkAAAAAAAAAAAATAAgAAAAAAAAAAAAWAAgAAAAAAAAAAAAZAAgAAAAAAAAAAAAcAAgAAAAAAAAAAAAfAAgAAAAAAAAAAAAiAAkAAAAAAAAAAAAlAAkAAAAAAAAAAAAoAAkAAAAAAAAAAAArAAkAAAAAAAAAAAAuAAkAAAAAAAAAAAAyAAkAAAAAAAAAAAA1AAsAAAAAAAAAAAA5AA0ABAAAAAAAAAApAAgAAQAAAAAAAAAqAAgAAQAAAAAAAAAqAAcAAQAAAAAAAAApAAcAAQAAAAAAAAAsAAcAAQAAAAAAAAAtAAgAAQAAAAAAAAAtAAcAAQAAAAAAAAAsAAgAAQAAAAAAAAAvAAcAAQAAAAAAAAAvAAgAAQAAAAAAAAAwAAgAAQAAAAAAAAAwAAcAAQAAAAAAAAAxAAcAAQAAAAAAAAAxAAgAAQAAAAAAAAA0AAgAAQAAAAAAAAA0AAkAAQAAAAAAAAAzAAcAAQAAAAAAAAA0AAcAAQAAAAAAAAA2AAkAAQAAAAAAAAA3AAkAAQAAAAAAAAA3AAoAAQAAAAAAAAA3AAsAAQAAAAAAAAAnAAcAAQAAAAAAAAAmAAcAAQAAAAAAAAAkAAcAAQAAAAAAAAAjAAcAAQAAAAAAAAAhAAcAAQAAAAAAAAAgAAYAAQAAAAAAAAAeAAYAAQAAAAAAAAAdAAYAAQAAAAAAAAAbAAYAAQAAAAAAAAAaAAYAAQAAAAAAAAAXAAYAAQAAAAAAAAAYAAYAAQAAAAAAAAAVAAYAAQAAAAAAAAAUAAYAAQAAAAAAAAASAAYAAQAAAAAAAAARAAcAAQAAAAAAAAAPAAcAAQAAAAAAAAAOAAcAAQAAAAAAAAANAAcAAQAAAAAAAAAEAAkAAQAAAAAAAAAGAAkAAQAAAAAAAAAIAAkAAQAAAAAAAAAJAAgAAAAAAAAAAAA=")
+tile_set = SubResource("3")
+
+[node name="TileMap" type="TileMapLayer" parent="Level"]
+use_parent_material = true
+position = Vector2(11, 0)
+tile_map_data = PackedByteArray("AAD6//r/AAAAAAAAAAD6//v/AAAAAAAAAAD6//z/AAAAAAAAAAD6//3/AAAAAAAAAAD6//7/AAAAAAAAAAD6////AAAAAAAAAAD6/wAAAAAAAAAAAAD6/wEAAAAAAAAAAAD6/wIAAAAAAAAAAAD6/wMAAAAAAAAAAAD6/wQAAAAAAAAAAAD6/wUAAAAAAAAAAAD6/wYAAAAAAAAAAAD6/wcAAAAAAAAAAAD6/wgAAAAAAAAAAAD6/wkAAAAAAAAAAAD6/woAAAAAAAAAAAD6/wsAAAAAAAAAAAD7/wsAAAAAAAAAAAD8/wsAAAAAAAAAAAD9/wsAAAAAAAAAAAD+/wsAAAAAAAAAAAD//wsAAAAAAAAAAAAAAAsAAAAAAAAAAAABAAsAAAAAAAAAAAACAAsAAAAAAAAAAAADAAsAAAAAAAAAAAAEAAsAAAAAAAAAAAAFAAsAAAAAAAAAAAAGAAsAAAAAAAAAAAAHAAsAAAAAAAAAAAAIAAsAAAAAAAAAAAAJAAsAAAAAAAAAAAAKAAsAAAAAAAAAAAALAAsAAAAAAAAAAAALAAwAAAAAAAAAAAALAA0AAAAAAAAAAAAMAA0AAAAAAAAAAAANAA0AAAAAAAAAAAANAA4AAAAAAAAAAAANAA8AAAAAAAAAAAAOAA8AAAAAAAAAAAAPAA8AAAAAAAAAAAAQAA8AAAAAAAAAAAARAA8AAAAAAAAAAAARAA4AAAAAAAAAAAARAA0AAAAAAAAAAAARAAwAAAAAAAAAAAARAAsAAAAAAAAAAAASAAsAAAAAAAAAAAATAAsAAAAAAAAAAAAUAAsAAAAAAAAAAAAVAAsAAAAAAAAAAAAWAAsAAAAAAAAAAAAXAAsAAAAAAAAAAAAYAAsAAAAAAAAAAAAZAAsAAAAAAAAAAAAZAAwAAAAAAAAAAAAZAA0AAAAAAAAAAAAaAA0AAAAAAAAAAAAbAA0AAAAAAAAAAAAbAA4AAAAAAAAAAAAbAA8AAAAAAAAAAAAcAA8AAAAAAAAAAAAdAA8AAAAAAAAAAAAeAA8AAAAAAAAAAAAfAA8AAAAAAAAAAAAjAA8AAAAAAAAAAAAkAA8AAAAAAAAAAAAlAA8AAAAAAAAAAAAmAA8AAAAAAAAAAAAnAA8AAAAAAAAAAAAoAA8AAAAAAAAAAAApAA8AAAAAAAAAAAAqAA8AAAAAAAAAAAArAA8AAAAAAAAAAAAsAA8AAAAAAAAAAAAtAA8AAAAAAAAAAAAuAA8AAAAAAAAAAAAvAA8AAAAAAAAAAAAwAA8AAAAAAAAAAAAxAA8AAAAAAAAAAAAyAA8AAAAAAAAAAAApAAoAAAAAAAAAAAAqAAoAAAAAAAAAAAArAAoAAAAAAAAAAAAsAAoAAAAAAAAAAAAtAAoAAAAAAAAAAAAuAAoAAAAAAAAAAAAvAAoAAAAAAAAAAAA0AA8AAAAAAAAAAAA1AA8AAAAAAAAAAAA2AA8AAAAAAAAAAAAzAA8AAAAAAAAAAAA3AA8AAAAAAAAAAAA4AA8AAAAAAAAAAAAiAA8AAAAAAAAAAAA=")
+tile_set = SubResource("2")

@@ -2,9 +2,9 @@ extends Area2D
 
 class_name Door
 
-export(String, FILE, "*.tscn") var next_level 
+@export var next_level: String = ""  # (String, FILE, "*.tscn")
 
-export var hoverText = ""
+@export var hoverText = ""
 
 var onDoor = false
 
@@ -23,7 +23,7 @@ func _input(event):
 	
 	if event.is_action_pressed("ui_accept") && onDoor:
 		onDoor = false
-		get_tree().change_scene(next_level)
+		get_tree().change_scene_to_file(next_level)
 		print("oo")
 	else:
 		pass;
@@ -34,6 +34,6 @@ func _input(event):
 #	pass
 
 
-func _on_Door_body_exited(body):
+func _on_Door_body_exited(_body):
 	$Label.visible = false
 	onDoor = false

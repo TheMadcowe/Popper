@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://bcttbuw04ohfp"]
+
+[ext_resource type="Texture2D" uid="uid://4ks7f0aabhj" path="res://Objects/Door.png" id="1"]
+[ext_resource type="Script" uid="uid://b3rnn4tefxl40" path="res://Scripts/Door.gd" id="2"]
+
+[sub_resource type="RectangleShape2D" id="1"]
+size = Vector2(8, 16)
+
+[sub_resource type="SystemFont" id="SystemFont_7ihvk"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_65nwm"]
+font = SubResource("SystemFont_7ihvk")
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Door" type="Area2D"]
+z_index = -2
+collision_layer = 8
+script = ExtResource("2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(4, 8)
+texture = ExtResource("1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4, 8)
+shape = SubResource("1")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+offset_left = -22.0
+offset_top = -25.0
+offset_right = 32.0
+offset_bottom = -2.0
+text = "Level 1"
+label_settings = SubResource("LabelSettings_65nwm")
+
+[connection signal="body_entered" from="." to="." method="_on_Door_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_Door_body_exited"]

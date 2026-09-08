@@ -1,13 +1,13 @@
 extends Control
 
-onready var resume = $CenterContainer/VBoxContainer/Resume
-onready var exit = $CenterContainer/VBoxContainer/ExitLevel
-onready var quit = $CenterContainer/VBoxContainer/Quit
+@onready var resume = $CenterContainer/VBoxContainer/Resume
+@onready var exit = $CenterContainer/VBoxContainer/ExitLevel
+@onready var quit = $CenterContainer/VBoxContainer/Quit
 
 func _ready():
 	resume.grab_focus()
 	
-func _process(delta):
+func _process(_delta):
 
 	if resume.is_hovered():
 		resume.grab_focus()
@@ -33,7 +33,7 @@ func _on_Resume_pressed():
 
 
 func _on_ExitLevel_pressed():
-	get_tree().change_scene("res://Stages/Main.tscn")
+	get_tree().change_scene_to_file("res://Stages/Main.tscn")
 	get_tree().paused = false
 	visible = false
 	pass # Replace with function body.

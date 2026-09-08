@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://esl3de46bj84"]
+
+[ext_resource type="AudioStream" uid="uid://o26ltm58pce6" path="res://Audio/Balloon_Pop.wav" id="1_oq3ex"]
+
+[node name="SoundEffect" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_oq3ex")
+volume_db = -11.082

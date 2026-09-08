@@ -1,10 +1,10 @@
-extends KinematicBody2D
+extends CharacterBody2D
 
 class_name  NPC
 
-onready var text = $Label
+@onready var text = $Label
 
-export var speech = ""
+@export var speech = ""
 
 const WALKING_SPEED = 10
 const GRAVITY_VECTOR = Vector2(0,200)
@@ -21,17 +21,21 @@ var anim = ""
 
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	var new_anim = "Idle"
-	linear_vel += delta * GRAVITY_VECTOR
+	linear_vel += _delta * GRAVITY_VECTOR
 	linear_vel.x = direction * WALKING_SPEED
 	
-	linear_vel = move_and_slide(linear_vel, FLOOR_NORMAL, SLOPE_SLIDE_STOP)
+	set_velocity(linear_vel)
+	set_up_direction(FLOOR_NORMAL)
+	set_floor_stop_on_slope_enabled(SLOPE_SLIDE_STOP)
+	move_and_slide()
+	linear_vel = velocity
 	
 	if direction == 0:
 		new_anim = "Idle"
 	elif(linear_vel.x != 0):
-		$Sprite.scale = Vector2(direction, 1)
+		$Sprite2D.scale = Vector2(direction, 1)
 		new_anim = "Walk"
 
 	

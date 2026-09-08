@@ -1,95 +1,94 @@
 extends Node
 
-onready var objects = $Objects
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"	var balloon = load("res://Balloon.tscn")
+@onready var objects = $Objects
+@onready var player_position = $Player_Spawn
 
-onready var coin = load("res://Objects/Coin.tscn")
-# cellv 1 = coin
-onready var player = load("res://Player/Player.tscn")
-onready var balloon = load("res://Objects/Balloon.tscn")
-# cellv 0 = balloon
-onready var smile = load("res://Objects/Smile.tscn")
-onready var bigBalloon = load("res://Objects/Big_Balloon.tscn")
-# cellv 3 = smile
-onready var gridSize = objects.cell_size
+@export var winHeight = -300
+@export var loseHeight = 300
 
-export var winHeight = -300
-export var loseHeight = 300
+var hud_scene = preload("res://Player/HUD.tscn")
+var hud: CanvasLayer
+var player: Player
 
-onready var playerPosition = $Player_Spawn
 var finished = false
 
-var remainingBalloons = 0
-# Called when the node enters the scene tree for the first time.
 func _ready():
+	hud = hud_scene.instantiate()
+	add_child(hud)
 
-	var player_instance = player.instance()
-	player_instance.set_name("Player")
-	add_child(player_instance)
-	player_instance.position = playerPosition.position
-	addObjects()
-	remainingBalloons = get_tree().get_nodes_in_group("Balloons").size()
-	$Player.setRemaining(remainingBalloons)
+	player = preload("res://Player/Player.tscn").instantiate()
+	player.position = player_position.position
+	add_child(player)
 	
-	pass # Replace with function body.
+	# Connect player signals
+	player.connect("balloon_hit", Callable(Game, "_on_balloon_hit")) # Example if you want boost to count?
+	player.connect("coin_collected", Callable(Game, "_on_coin_collected"))
+	player.connect("combo_incremented", Callable(hud, "_on_combo_incremented"))
+	player.connect("reached_win", Callable(self, "_on_level_won"))
+	player.connect("reached_lose", Callable(self, "_on_level_lose"))
+	
+	
+	_add_objects()
 
-func _physics_process(delta):
-	if $Player.position.y < winHeight:
-		$Player/HUD.youWin()
+
+func _physics_process(_delta):
+	
+	if finished or not player:
+		return
+		
+	if player.position.y < winHeight:
+		_on_player_win()
+
+	elif player.position.y > loseHeight:
+		_on_player_lose()
+
+		
+func _on_player_win():
 		finished = true
-		$Player._levelWon()
-	if $Player.position.y > loseHeight:
-		get_tree().change_scene("res://Stages/Main.tscn")
-	pass;
-
+		Game.emit_signal("level_completed")
+		hud.youWin()
+		
+func _on_player_lose():
+		finished = true
+		Game.emit_signal("level_failed")
+		get_tree().change_scene_to_file("res://Stages/Main.tscn")
+	
 func _input(event):
-	if get_tree().paused == true:
-		if event.is_action_pressed("ui_select"):
-			get_tree().paused == false
-			get_tree().change_scene("res://Stages/Main.tscn")
+	
+	if finished:
+		if event.is_action_pressed("jump") or event.is_action_pressed("ui_accept"):
+			get_tree().change_scene_to_file("res://Stages/Main.tscn")
+
 			
 
-func addObjects():
-	
+func _add_objects():
 	var usedCells = objects.get_used_cells()
-	print(usedCells)
+	var total_hp = 0
 	
-	for i in usedCells.size():
+	#Map tile IDs to text keys (used for tilemap -> Game.OBJECTS)
+	var id_to_key = {
+		0: "balloon",
+		1: "coin",
+		3: "smile",
+		4: "big_balloon"
+	}
+	
+	for cell in usedCells:
+		var tile_id = objects.get_cell_source_id(cell)
+		if not id_to_key.has(tile_id):
+			continue
 		
-		var object = objects.get_cellv(usedCells[i])
-		print(object)
-		if object == 0 :
-			var balloon_instance = balloon.instance()
+		var key = id_to_key[tile_id]
+		var data = Game.OBJECTS[key]
+		var instance = data["scene"].instantiate()
+		add_child(instance)
+		instance.add_to_group(data["group"])
+		instance.position = objects.map_to_local(cell)
 		
-			
-			
-			
-			add_child(balloon_instance)
-			balloon_instance.add_to_group("Balloons")
-			balloon_instance.position = objects.map_to_world(usedCells[i])
-			
-			
-		elif object == 1 :
-			var coin_instance = coin.instance()
-			add_child(coin_instance)
-			coin_instance.add_to_group("Coins")
-			coin_instance.position = objects.map_to_world(usedCells[i])
-			
-			
-		elif object == 3 :
-			var smile_instance = smile.instance()
-			add_child(smile_instance)
-			smile_instance.add_to_group("Balloons")
-			smile_instance.position = objects.map_to_world(usedCells[i])
-			
-		elif object == 4 :
-			var big_balloon_instance = bigBalloon.instance()
-			add_child(big_balloon_instance)
-			big_balloon_instance.add_to_group("Balloons")
-			big_balloon_instance.position = objects.map_to_world(usedCells[i])
+		if data["group"] == "Balloons" and  "hp" in instance:
+			total_hp += instance.hp
+		
 	objects.clear()
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+	Game.reset_level_balloon_hp(total_hp)
+	print(total_hp)
+	Game.emit_signal("balloon_popped", 0)

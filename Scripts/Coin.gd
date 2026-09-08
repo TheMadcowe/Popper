@@ -16,13 +16,12 @@ func _ready():
 
 func _on_Coin_body_entered(body):
 	if not taken and body is Player:
-		($Anim as AnimationPlayer).play("taken")
 		taken = true
-		body.addCoin(coinValue)
+		($Anim as AnimationPlayer).play("taken")
 		_playSound()
+		Game.on_coin_collected(coinValue)
 
 func _playSound():
 	var sound = randi() % coinSounds.size()
 	$Audio.stream = coinSounds[sound]
 	$Audio.play()
-	print(sound)

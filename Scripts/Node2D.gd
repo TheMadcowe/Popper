@@ -1,7 +1,8 @@
 extends RigidBody2D
 
+class_name NAIL
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	pass;
 
 func _on_Timer_timeout():

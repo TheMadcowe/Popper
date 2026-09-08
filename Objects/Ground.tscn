@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Objects/JungleDirtTileSet.png" type="Texture" id=1]
+[ext_resource path="res://Objects/JungleDirtTileSet.png" type="Texture2D" id=1]
 
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -8,7 +8,7 @@ extents = Vector2( 16, 16 )
 
 [node name="Ground" type="Node2D"]
 
-[node name="0" type="Sprite" parent="."]
+[node name="0" type="Sprite2D" parent="."]
 editor/display_folded = true
 position = Vector2( 16, 16 )
 texture = ExtResource( 1 )
@@ -25,7 +25,7 @@ position = Vector2( -16, -16 )
 position = Vector2( 16, 16 )
 shape = SubResource( 1 )
 
-[node name="1" type="Sprite" parent="."]
+[node name="1" type="Sprite2D" parent="."]
 editor/display_folded = true
 position = Vector2( 80, 16 )
 texture = ExtResource( 1 )
@@ -42,7 +42,7 @@ position = Vector2( -16, -16 )
 position = Vector2( 16, 16 )
 shape = SubResource( 1 )
 
-[node name="2" type="Sprite" parent="."]
+[node name="2" type="Sprite2D" parent="."]
 editor/display_folded = true
 position = Vector2( 144, 16 )
 texture = ExtResource( 1 )
@@ -59,7 +59,7 @@ position = Vector2( -16, -16 )
 position = Vector2( 16, 16 )
 shape = SubResource( 1 )
 
-[node name="3" type="Sprite" parent="."]
+[node name="3" type="Sprite2D" parent="."]
 editor/display_folded = true
 position = Vector2( 16, 80 )
 texture = ExtResource( 1 )
@@ -76,7 +76,7 @@ position = Vector2( -16, -16 )
 position = Vector2( 16, 16 )
 shape = SubResource( 1 )
 
-[node name="4" type="Sprite" parent="."]
+[node name="4" type="Sprite2D" parent="."]
 editor/display_folded = true
 position = Vector2( 80, 80 )
 texture = ExtResource( 1 )
@@ -93,7 +93,7 @@ position = Vector2( -16, -16 )
 position = Vector2( 16, 16 )
 shape = SubResource( 1 )
 
-[node name="5" type="Sprite" parent="."]
+[node name="5" type="Sprite2D" parent="."]
 editor/display_folded = true
 position = Vector2( 144, 80 )
 texture = ExtResource( 1 )
@@ -110,7 +110,7 @@ position = Vector2( -16, -16 )
 position = Vector2( 16, 16 )
 shape = SubResource( 1 )
 
-[node name="6" type="Sprite" parent="."]
+[node name="6" type="Sprite2D" parent="."]
 editor/display_folded = true
 position = Vector2( 16, 144 )
 texture = ExtResource( 1 )
@@ -127,7 +127,7 @@ position = Vector2( -16, -16 )
 position = Vector2( 16, 16 )
 shape = SubResource( 1 )
 
-[node name="7" type="Sprite" parent="."]
+[node name="7" type="Sprite2D" parent="."]
 editor/display_folded = true
 position = Vector2( 80, 144 )
 texture = ExtResource( 1 )
@@ -144,7 +144,7 @@ position = Vector2( -16, -16 )
 position = Vector2( 16, 16 )
 shape = SubResource( 1 )
 
-[node name="8" type="Sprite" parent="."]
+[node name="8" type="Sprite2D" parent="."]
 editor/display_folded = true
 position = Vector2( 144, 144 )
 texture = ExtResource( 1 )

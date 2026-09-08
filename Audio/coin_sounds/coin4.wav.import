@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/coin4.wav-007dbc9a2a25fb74d121f31bb56a352a.sample"
+type="AudioStreamWAV"
+uid="uid://chhqqdlbge5j5"
+path="res://.godot/imported/coin4.wav-007dbc9a2a25fb74d121f31bb56a352a.sample"
 
 [deps]
 
 source_file="res://Audio/coin_sounds/coin4.wav"
-dest_files=[ "res://.import/coin4.wav-007dbc9a2a25fb74d121f31bb56a352a.sample" ]
+dest_files=["res://.godot/imported/coin4.wav-007dbc9a2a25fb74d121f31bb56a352a.sample"]
 
 [params]
 
@@ -17,5 +18,7 @@ force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false
 edit/normalize=false
-edit/loop=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
 compress/mode=0

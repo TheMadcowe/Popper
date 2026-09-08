@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/Balloon_Pop.wav-194968cf7ffcde2c4806da072f89e26e.sample"
+type="AudioStreamWAV"
+uid="uid://o26ltm58pce6"
+path="res://.godot/imported/Balloon_Pop.wav-194968cf7ffcde2c4806da072f89e26e.sample"
 
 [deps]
 
 source_file="res://Audio/Balloon_Pop.wav"
-dest_files=[ "res://.import/Balloon_Pop.wav-194968cf7ffcde2c4806da072f89e26e.sample" ]
+dest_files=["res://.godot/imported/Balloon_Pop.wav-194968cf7ffcde2c4806da072f89e26e.sample"]
 
 [params]
 
@@ -17,5 +18,7 @@ force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=true
 edit/normalize=true
-edit/loop=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
 compress/mode=0
